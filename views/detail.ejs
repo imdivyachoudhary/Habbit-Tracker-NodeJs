@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="/css/detail.css" />
+
+<!-- Link for Home Page -->
+<div class="home-page-link">
+  <div class="link"><a href="/">Back</a></div>
+</div>
+
+<!-- Display the Habbits -->
+<%  let days = [];
+    let dates = [];
+    let day7 = new Date(); let day7_date = day7.toLocaleDateString("en-GB"); let day7_day = getDayOfWeek(day7); 
+    // console.log(day7_date, day7_day);
+    let day6 = new Date(day7 - 86400000); let day6_date = day6.toLocaleDateString("en-GB"); let day6_day = getDayOfWeek(day6); 
+    // console.log(day6_date, day6_day);
+    let day5 = new Date(day6 - 86400000); let day5_date = day5.toLocaleDateString("en-GB"); let day5_day = getDayOfWeek(day5); 
+    // console.log(day5_date, day5_day);
+    let day4 = new Date(day5 - 86400000); let day4_date = day4.toLocaleDateString("en-GB"); let day4_day = getDayOfWeek(day4); 
+    // console.log(day4_date, day4_day);
+    let day3 = new Date(day4 - 86400000); let day3_date = day3.toLocaleDateString("en-GB"); let day3_day = getDayOfWeek(day3); 
+    // console.log(day3_date, day3_day);
+    let day2 = new Date(day3 - 86400000); let day2_date = day2.toLocaleDateString("en-GB"); let day2_day = getDayOfWeek(day2); 
+    // console.log(day2_date, day2_day);
+    let day1 = new Date(day2 - 86400000); let day1_date = day1.toLocaleDateString("en-GB"); let day1_day = getDayOfWeek(day1); 
+    // console.log(day1_date, day1_day);
+    days.push(day1_day,day2_day,day3_day,day4_day,day5_day,day6_day,day7_day); 
+    dates.push(day1_date,day2_date,day3_date,day4_date,day5_date,day6_date,day7_date);
+    // console.log(days); console.log(dates);
+%>
+
+<div class="weekly_report">
+  <div class="report-table">
+    <div class="row">
+        <div class="cell"><div class="status-cell">Habbits/Days</div></div>
+        <% for( let i = 0; i < 7; i++ ) { %>
+        <div class="cell"><div class="date-cell"><%= days[i] %><br><%= dates[i] %></div></div>
+        <% } %>
+    </div>
+    <% habbits.forEach(habbit => { %>
+    <% let status; %>
+    <div class="row" id="habbit-<%= habbit.id %>">
+      <div class="cell"><div class="status-cell"><%= habbit.name %></div></div>
+      <% for( let i = 0; i < 7; i++ ) { %>
+      <% status = checkStatusOfDate(habbit,dates[i]); %>
+      <div class="cell"><div class="status-cell status-cell-icon day<%= i %>" onclick="openStatusOptions(this,event,'<%= habbit.id %>','day<%= i %>')">
+        <div class="status-icon">
+          <% if(status=="Done") { %> 
+            <i class="fas fa-check" style="color: #09b106;"></i> 
+          <% } else if(status=="Not Done") { %> 
+            <i class="fas fa-times" style="color: #cf2507;"></i> 
+          <% } else { %> 
+            <i class="fas fa-minus"></i> 
+          <% } %>
+        </div>
+        <div class="status-options">
+          <div class="status-option <% if (status=="Done") { %> active <% } %>"
+              data-id="<%= habbit.id %>"
+              onclick="updateDateStatus(this,event,'<%= habbit.id %>','<%= dates[i] %>','day<%= i %>', 'Done')"
+            >
+              Done
+          </div>
+          <div class="status-option <% if (status=="Not Done") { %> active <% } %>"
+              data-id="<%= habbit.id %>"
+              onclick="updateDateStatus(this,event,'<%= habbit.id %>','<%= dates[i] %>','day<%= i %>', 'Not Done')"
+            >
+              Not Done
+          </div>
+          <div class="status-option <% if (status=="None") { %> active <% } %>"
+              data-id="<%= habbit.id %>"
+              onclick="updateDateStatus(this,event,'<%= habbit.id %>','<%= dates[i] %>','day<%= i %>', 'None')"
+            >
+              None
+          </div>
+        </div> 
+      </div></div>
+      <% } %>
+    </div>
+    <% }) %>
+    
+</div>
+</div>
+
+<script src="/js/detail.js"></script>

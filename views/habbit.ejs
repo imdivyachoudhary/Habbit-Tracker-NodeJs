@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/css/habbit.css" />
+
+<!-- Form for Adding Habbits -->
+<header>
+<form action="/create-habbit" method="post" id="add-habbit-form" onsubmit="addHabbit(this, event)">
+  <input
+    type="text"
+    placeholder="Add Habbit"
+    name="name"
+    id="name"
+    required
+  />
+  <button type="submit" id="search-button"><i class="fas fa-plus"></i></button>
+</form>
+</header>
+
+<!-- Link for Weekly Report -->
+<div class="weekly-report-link" id="weekly-report-link"><div class="link"><a href="/weekly-report">Weekly Report</a></div></div>
+
+<!-- Display the Habbits -->
+<div class="habbits-list" id="habbits-list" data-count="<%= habbits.length %>">
+  <div class="habbit habbit-heading" id="habbit-heading">
+    <div class="display_name">Habbits</div>
+
+    <div class="habbit-status-options" id="today-date">
+      <% let today = new Date(); let date_options={weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'}; let display_date = today.toLocaleDateString("en-US", date_options); %>
+      <%= display_date %>
+      <% today = today.toLocaleDateString("en-GB") %>
+    </div>
+  </div>
+  <div id="habbits">
+    <% habbits.forEach(habbit => { %>
+    <% let status = checkStatusOfDate(habbit,today); %>
+    <div class="habbit" id="habbit-<%= habbit.id %>">
+      <div class="display_name"><%= habbit.name %></div>
+
+      <div class="habbit-status-options">
+        <button
+          class="btn btn-sm <% if (status=="Done") { %> active <% } %>"
+          data-id="<%= habbit.id %>"
+          onclick="updateDateStatus(this,'<%= habbit.id %>','<%= today %>', 'Done')"
+        >
+          Done
+        </button>
+        <button
+          class="btn btn-sm <% if (status=="Not Done") { %> active <% } %>"
+          data-id="<%= habbit.id %>"
+          onclick="updateDateStatus(this,'<%= habbit.id %>','<%= today %>', 'Not Done')"
+        >
+          Not Done
+        </button>
+        <button
+          class="btn btn-sm <% if (status=="None") { %> active <% } %>"
+          data-id="<%= habbit.id %>"
+          onclick="updateDateStatus(this,'<%= habbit.id %>','<%= today %>', 'None')"
+        >
+          None
+        </button>
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+  <p class="show-failure-message">Nothing To Show!!! <br> Add Habbits </p>
+</div>
+
+<script src="/js/habbit.js"></script>

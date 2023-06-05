@@ -1,0 +1,65 @@
+.home-page-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; }
+  .home-page-link .link {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.weekly_report {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; }
+  .weekly_report .report-table {
+    display: table;
+    border-collapse: collapse;
+    overflow: auto; }
+  .weekly_report .row {
+    display: table-row; }
+  .weekly_report .cell {
+    display: table-cell;
+    border: 5px solid gray;
+    background-color: #d8c5c5;
+    height: 80px;
+    font-weight: bold; }
+    .weekly_report .cell .date-cell {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: end;
+      align-items: center;
+      text-align: end; }
+    .weekly_report .cell .status-cell {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative; }
+      .weekly_report .cell .status-cell i {
+        font-size: 2rem; }
+      .weekly_report .cell .status-cell .status-options {
+        z-index: 1;
+        display: none;
+        position: absolute;
+        width: max-content;
+        top: 25%;
+        left: 25%;
+        background-color: #d8bf75;
+        border: solid #bfa147 2px;
+        font-weight: bold;
+        color: white; }
+        .weekly_report .cell .status-cell .status-options .status-option {
+          padding: 2px;
+          cursor: pointer;
+          border: solid #bfa147 2px; }
+        .weekly_report .cell .status-cell .status-options .status-option:hover {
+          background-color: #3b78ad; }
+        .weekly_report .cell .status-cell .status-options .active {
+          cursor: pointer;
+          background-color: #af8207; }
+    .weekly_report .cell .status-cell-icon {
+      cursor: pointer; }
+    .weekly_report .cell .status-cell-icon:hover {
+      background-color: #b18a8a; }

@@ -1,0 +1,85 @@
+.home-page-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .link {
+    // width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.weekly_report {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .report-table {
+    display: table;
+    border-collapse: collapse;
+    overflow: auto;
+  }
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+    border: 5px solid gray;
+    background-color: #d8c5c5;
+    // width: 80px;
+    height: 80px;
+    // -webkit-box-sizing: border-box;
+    // -moz-box-sizing: border-box;
+    // box-sizing: border-box;
+    font-weight: bold;
+    .date-cell {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: end;
+      align-items: center;
+      text-align: end;
+    }
+    .status-cell {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      i {
+        font-size: 2rem;
+      }
+      .status-options {
+        z-index: 1;
+        display: none;
+        position: absolute;
+        width: max-content;
+        top: 25%;
+        left: 25%;
+        background-color: #d8bf75;
+        border: solid #bfa147 2px;
+        font-weight: bold;
+        color: white;
+        .status-option {
+          padding: 2px;
+          cursor: pointer;
+          border: solid #bfa147 2px;
+        }
+        .status-option:hover {
+          background-color: #3b78ad;
+        }
+        .active {
+          cursor: pointer;
+          background-color: #af8207;
+        }
+      }
+    }
+    .status-cell-icon{
+      cursor: pointer;
+    }
+    .status-cell-icon:hover{
+      background-color: #b18a8a;
+    }
+  }
+}

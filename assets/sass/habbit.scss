@@ -1,0 +1,102 @@
+header {
+  // width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+form#add-habbit-form {
+  background-color: #279309;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  padding: 20px 0;
+
+  input {
+    padding: 5px;
+    width: 350px;
+    border-radius: 25px;
+    text-align: center;
+  }
+
+  button {
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    box-shadow: 0px 0px 5px 2px rgb(194, 182, 182);
+  }
+}
+
+.weekly-report-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .link {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+.habbits-list {
+  // height: inherit;
+  // width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  line-height: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .habbit-heading {
+    font-weight: bold;
+    border-top: solid gainsboro 2px;
+  }
+  .habbit {
+    border-bottom: solid gainsboro 2px;
+    border-left: solid gainsboro 2px;
+    border-right: solid gainsboro 2px;
+    padding: 2px;
+    width: 500px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    .display_name {
+      flex-grow: 1;
+      margin-left: 5px;
+      padding: 2px;
+      font-size: 1.5rem;
+      text-align: left;
+      // cursor: pointer;
+    }
+
+    .habbit-status-options {
+      text-align: end;
+      button {
+        cursor: pointer;
+        background-color: #bebcb7;
+        font-weight: bold;
+        color: white;
+      }
+      button:hover {
+        background-color: #3b78ad;
+      }
+      .active {
+        background-color: #bfa147;
+      }
+    }
+  }
+}
+
+p.show-failure-message {
+  color: gray;
+  text-align: center;
+  font-size: 2rem;
+  display: none;
+}
