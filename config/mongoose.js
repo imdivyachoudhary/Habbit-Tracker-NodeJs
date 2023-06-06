@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(`mongodb+srv://codeialtest1234:aman1234@cluster0.jnofoef.mongodb.net/?retryWrites=true&w=majority`);
-  // await mongoose.connect(`mongodb+srv://imdivyachoudhary:divya123@cluster0.lg0g4rt.mongodb.net/habbit_tracker?retryWrites=true&w=majority`);
+  // await mongoose.connect(`mongodb+srv://codeialtest1234:aman1234@cluster0.jnofoef.mongodb.net/?retryWrites=true&w=majority`);
+  await mongoose.connect(`mongodb+srv://imdivyachoudhary:divya123@cluster0.lg0g4rt.mongodb.net/habbit_tracker?retryWrites=true&w=majority`);
   console.log(`Connected to DB : habbit_tracker`);
 }
 
