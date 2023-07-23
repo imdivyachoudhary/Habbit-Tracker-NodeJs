@@ -15,22 +15,6 @@ module.exports.index = async (req, res) => {
   }
 };
 
-module.exports.detail = async function (req, res) {
-    try {
-      let habbits = await Habbit.find({}).sort("name");
-  
-      return res.status(200).json({
-        data: habbits,
-        message: "Weekly Report fetched Successfully",
-      });
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json({
-        message: "Failed to fetch Weekly Report",
-      });
-    }
-  };
-
 module.exports.create = async function (req, res) {
     try {
       let habbit = await Habbit.find({name: req.body.name});
@@ -75,6 +59,7 @@ module.exports.create = async function (req, res) {
       }
   
       return res.status(200).json({
+        data: habbit,
         message: "Habbit Status Updated Successfully",
       });
     } catch (error) {
