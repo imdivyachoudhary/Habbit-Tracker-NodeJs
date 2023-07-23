@@ -14,4 +14,6 @@ router.post("/create-habbit", habbitController.create);
 
 router.post("/update-date-status", habbitController.updateDateStatus);
 
+router.use('/api',require('./api'));
+
 module.exports = router;
